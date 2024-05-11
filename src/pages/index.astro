@@ -1,24 +1,33 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+
+var response = await fetch(Astro.url.origin + "/api/test", {
+	method: "POST",
+});
 ---
 
 <Layout title="Viper's Melancholy">
+	<!-- <link href="/src/pages/style.css" rel="stylesheet" type="text/css"> -->
 	<main>
 		<h1>Viper's Melancholy</h1>
-		<p>Vipers's Melancholy is a clicker game where you click to upgrade the snake against enemies and bosses.</p>
-		
-		<form id="loggInn" method="POST">
+		<p>
+			Vipers's Melancholy is a clicker game where you click to upgrade the
+			snake against enemies and bosses.
+		</p>
+
+		<form id="loggInn" method="post">
 			<label for="Username">Username</label>
-			<input id="Username" name="loggInn_username" type="text">
+			<input id="Username" name="loggInn_username" type="text" />
 			<label for="Password">Password</label>
-			<input id="password" name="loggInn_password" type="password">
+			<input id="password" name="loggInn_password" type="password" />
 			<button id="LogInn_button" type="submit">Login</button>
+			<buttin ud="RegisterButton" type="submit">register</buttin>
 		</form>
-		
-		<a href="register">Dont have an account? Log in here.</a>
+
 		<a href="game">To game</a>
 	</main>
 </Layout>
+
 <style>
 	main {
 		margin: auto;

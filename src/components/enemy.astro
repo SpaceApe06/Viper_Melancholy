@@ -28,7 +28,7 @@ const { name, hp, id } = Astro.props;
 	var image = document.getElementById("image") as HTMLImageElement;
 	var name = document.getElementById("name").innerHTML;
 	var hp = document.getElementById("hp");
-
+	let antall = 1;
 	image.src = `enemy/${name}.png`;
 
 	image.addEventListener("click", click);
@@ -36,6 +36,7 @@ const { name, hp, id } = Astro.props;
 	var enemies = {
 		test: { hp: "10" },
 		test2: { hp: "20" },
+		test3: { hp: "30"}
 	};
 
 	function newEnemy() {

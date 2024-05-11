@@ -1,0 +1,19 @@
+---
+interface Props {
+	name: string;
+	desc: string;
+    cost: string;
+}
+const { name, desc, cost} = Astro.props;
+---
+
+<div id="upgrade_container">
+    <div id="upgrade_info_container">
+        <p id="upgrade_name">{name}</p>
+        <p id="upgrade_desc">{desc}</p>
+    </div>
+    <div>
+            <p id="cost">{cost}</p>
+            <button id="buy">Buy</button>
+    </div>
+</div>

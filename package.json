@@ -10,6 +10,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.4.6"
+    "astro": "^4.4.6",
+    "http": "^0.0.1-security",
+    "https": "^1.0.0",
+    "mariadb": "^3.3.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.9.7"
   }
 }
