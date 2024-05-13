@@ -1,7 +1,20 @@
 ---
-import Navbar from "../components/nav.astro"; 
+import Layout from '../layouts/Layout.astro'
 ---
-
-<Navbar/>
-
-<p>Bordff</p>
+<Layout title="Leaderboard">
+    <main>
+        <div id="board_container">
+            <h1 id=board_title>Leaderboard</h1>
+            <div id="score_container">
+                <div id="score_type">
+                    <p>Name</p>
+                    <p>Clicks</p>
+                    <p>V-shard</p>
+                    <p>Upgrades</p>
+                    <p>Enemies killed</p>
+                </div>
+                <div id="player_score"> </div>
+            </div>
+        </div>
+    </main>
+</Layout>

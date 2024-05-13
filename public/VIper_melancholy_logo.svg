@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_3" data-name="Layer 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 311.27 147.91">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #93278f;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6 {
+        font-family: MelancholyRegular, Melancholy;
+      }
+
+      .cls-2, .cls-7 {
+        fill: #74ff45;
+      }
+
+      .cls-3 {
+        fill: #d85cff;
+      }
+
+      .cls-7, .cls-8, .cls-9 {
+        font-family: MyriadPro-Regular, 'Myriad Pro';
+      }
+
+      .cls-8, .cls-4 {
+        fill: #29d330;
+      }
+
+      .cls-10 {
+        font-size: 48px;
+      }
+
+      .cls-5 {
+        fill: #55ff45;
+      }
+    </style>
+  </defs>
+  <text class="cls-10" transform="translate(4.02 43.23)"><tspan class="cls-6" x="0" y="0">Viper</tspan><tspan class="cls-9" x="62.49" y="0">&apos;</tspan><tspan class="cls-6" x="71.52" y="0">s melancholy</tspan></text>
+  <text class="cls-10" transform="translate(2.06 41.86)"><tspan class="cls-4" x="0" y="0">Viper</tspan><tspan class="cls-8" x="62.49" y="0">&apos;</tspan><tspan class="cls-4" x="71.52" y="0">s </tspan><tspan class="cls-1" x="92.3" y="0">melancholy</tspan></text>
+  <text class="cls-10" transform="translate(0 40.8)"><tspan class="cls-2" x="0" y="0">Viper</tspan><tspan class="cls-7" x="62.49" y="0">&apos;</tspan><tspan class="cls-2" x="71.52" y="0">s</tspan><tspan class="cls-5" x="85.48" y="0"> </tspan><tspan class="cls-3" x="92.3" y="0">melancholy</tspan></text>
+</svg>
