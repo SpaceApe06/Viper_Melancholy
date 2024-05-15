@@ -23,7 +23,7 @@
 
             <button type="submit">Register</button>
         </form>
-        <p>Already have an account? <a href="index.astro">Login here</a></p>
+        <p>Already have an account? <a href="index.php">Login here</a></p>
     </div>
 </body>
 </html>

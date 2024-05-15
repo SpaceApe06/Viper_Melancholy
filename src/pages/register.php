@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($result) {
         // Redirect to the login page after successful registration
-        header("Location: index.astro");
+        header("Location: index.php");
         exit();
     } else {
         echo "Registration failed";
