@@ -6,6 +6,12 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </html>
     <main>
+    <nav id="navBar">
+        <a id="navKnapp" href="/game.php">Game</a>
+        <a id="navKnapp" href="/board.php">Leaderboard</a>
+        <a id="navKnapp" href="FAQ.php">Guide</a>
+        <a id="navKnapp" href="/index.php">Log out</a>
+    </nav>
         <div id="board_container">
             <h1 id=board_title>Leaderboard</h1>
             <div id="score_container">
