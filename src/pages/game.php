@@ -33,29 +33,34 @@ if(!isset($_SESSION['user_id'])) {
         		<?php endif; ?>
 				<a id="navKnapp" href="/index.php">Log out</a>
 			</nav>
+
 			<img src="public/Viper_melancholy_logo.svg" alt="Viper Melancholy logo" id="logo" height="100px">
-				<div id="game_container">
+		<div id="game_container">
+
 			<div id="upgrade_list"> <!--Upgrade listen -->
 				<div id="upgrade_container">
+					<h1>Upgrades</h1>
 					<div id="upgrade_info_container">
-						<p id="upgrade_name">name</p>
-						<p id="upgrade_desc">description</p>
-					</div>
-					<div id="buy_container">
-						<p id="cost">Cost: V-shards</p>
-						<button id="buy">Buy</button>
+						<p id="upgrade_name">Double clicks</p>
+						<p id="upgrade_desc">when bought you will double your damage</p>
+						<div id="buy_container">
+							<p id="cost">Cost: 5 V-shards</p>
+							<button id="buy">Buy</button>
+						</div>
 					</div>
 				</div>
 			</div>
+
 			<div id="enemy_container">
 				<div id="enemy">
 					<p id="hp">HP: 100</p>
-					<p id="enemyName">Enemy Name</p>
+					<p id="enemyName">Enemy 1</p>
 					<img id="enemyImage" src="public\enemy\enemy1.png" draggable="false" onclick="clickEnemy()">
 					<p id="counter">Total clicks: 0</p>
 				</div>
 			</div>
+
 		</div>
-		</main>		
+	</body>		
 <script src="\api\game.js"></script>
 </html>

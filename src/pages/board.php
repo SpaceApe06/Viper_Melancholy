@@ -43,7 +43,13 @@ if(!isset($_SESSION['user_id'])) {
                     <p>Upgrades</p>
                     <p>Enemies killed</p>
                 </div>
-                <div id="player_score"> </div>
+                <div id="score_type">
+                    <p>Alexander</p>
+                    <p>4465</p>
+                    <p>45210</p>
+                    <p>5</p>
+                    <p>100</p>
+                </div>
             </div>
         </div>
     </main>

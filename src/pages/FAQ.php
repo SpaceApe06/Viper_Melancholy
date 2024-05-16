@@ -35,10 +35,13 @@ if(!isset($_SESSION['user_id'])) {
             <a id="navKnapp" href="/index.php">Log out</a>
         </nav>
 
-    <h1>Frequently asked questions</h1>
+    <h1>Frequently asked questions (FAQ)</h1>
         <div id="FAQ_container">
             <h2>How to play the game?</h2>
-            <p>Click on the button to earn points. The more you click, the more points you earn.</p>
+            <p>Click on the enemy to do damage and to earn V-shard. The more you click, the more damage.</p>
+
+            <h2>What is V-shard?</h2>
+            <p>V-shard is the currency in the game. You can use it to upgrade your clicker.</p>
 
             <h2>What is Stats?</h2>
             <p>Stats page shows the stats of individual players based on the multiple factor such as clicks or enemies killed they have earned.</p>
@@ -49,5 +52,5 @@ if(!isset($_SESSION['user_id'])) {
             <h2>How to upgrade?</h2>    
             <p>Click on the upgrade button to upgrade yoru clicker. The more you upgrade, the more powerful you become.</p>
         </div>
-    <p>For any questions send an Email to Alexandermofre@gmail.com</p>
+    <h2>For any questions send an mail to Alexandermofre@gmail.com</h2>
     </body>

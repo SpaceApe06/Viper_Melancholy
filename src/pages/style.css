@@ -39,12 +39,12 @@
     justify-content: space-evenly;
     border-bottom: 1px solid black;
 }
-#player_score {
+/* #player_score {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     border-bottom: 1px solid black;
-}
+} */
 :root {
     --accent: 136, 58, 234;
     --accent-light: 224, 204, 250;
@@ -81,26 +81,21 @@ main {
 #game_container {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
     height: 100vh;
-    border-color: solid blue
+    border: solid 1px black
 };
 #upgrade_list {
     flex-direction: column;
     border-color: solid blue
 };
-#enemyImage {
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-}
 #upgrade_container {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     /* align-items: flex-start; */
-    width: 25%;
-    height: 25%;
+    width: 50%;
+    height: 50%;
     padding: 10px;
     border: 1px solid black;
 }
@@ -117,47 +112,33 @@ main {
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    border: 1px solid black;
     padding: 1%;
 }
 #buy {
-    width: 25%;
+    width: 50%;
     padding: 3%;
     border-radius: 3px;
-    background-color: red;
+    background-color: lightgreen;
+    border: 3px solid black;
     color: white;
     border: none;
     cursor: pointer;
 }
 #buy:hover {
-    background-color: darkred;
+    background-color: green;
 }
 #upgrade_name {
     font-size: 150%;
 }
-/* 
-:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	} */
+#enemy_container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+}
+#enemyImage {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    cursor: pointer;
+}
