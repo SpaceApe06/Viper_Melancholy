@@ -1,3 +1,13 @@
+#logg_inn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#logg_inn_label{
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    flex-direction: column;
+}
 #navBar {
     display: flex;
     justify-content: space-around;

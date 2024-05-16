@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 	<body>
+        <br><br>
         <h1>Viper's Melancholy</h1>
 		<p>
 			Vipers's Melancholy is a clicker game where you click to upgrade the
@@ -13,11 +14,11 @@
 		</p>
         <!-- id="loggInn" -->
         <form method="post" action="log_inn.php">
-                <div id="brukernavn">
+                <div id="logg_inn_label">
                     <label for="username">Name:</label>
                     <input type="text" id="username" name="username" placeholder="Username" maxlength="20">
                 </div>
-                <div id="Passord">
+                <div id="logg_inn_label">
                     <label for="password">Password:</label>
                     <input type="password" id="password" name="password" placeholder="Password" maxlength="20">
                 </div>
@@ -29,7 +30,6 @@
 
                     <p>Don't have an account? <a href="register_page.php">Sign Up</a></p>
         </form>
-		<a href="game.php">To game</a>
     </body>
 <style>
 

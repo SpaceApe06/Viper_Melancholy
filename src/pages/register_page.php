@@ -7,23 +7,34 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <div id="content">
+    <br><br>
+    <div id="registrer">
         <h1>Viper Melancholy Register</h1>
-    <!-- </div> -->
-    <!-- <div id="content"> -->
-        <form action="register.php" method="post">
-            <label for="register_username">Username:</label>
-            <input type="text" id="register_username" name="username" required>
+        <p>
+			Vipers's Melancholy is a clicker game where you click to upgrade the
+			snake against enemies and bosses.
+		</p>
 
-            <label for="register_password">Password:</label>
-            <input type="password" id="register_password" name="password" required>
+        <!-- registrer -->
+        <div id="logg_inn">
+            <form action="register.php" method="post">
+                <div id="logg_inn_label">
+                    <label for="register_username">Username:</label>
+                    <input type="text" id="register_username" placeholder="Username" name="username" required>
+                </div>
+                <div id="logg_inn_label">
+                    <label for="register_password">Password:</label>
+                    <input type="password" id="register_password" placeholder="Password" name="password" required>
+                </div>
+                <div id="logg_inn_label">
+                    <label for="confirm_password">Confirm Password:</label>
+                    <input type="password" id="confirm_password" placeholder="Confirm Password" name="confirm_password" required>
+                </div>
 
-            <label for="confirm_password">Confirm Password:</label>
-            <input type="password" id="confirm_password" name="confirm_password" required>
-
-            <button type="submit">Register</button>
-        </form>
-        <p>Already have an account? <a href="index.php">Login here</a></p>
+                <button type="submit">Register</button>
+            </form>
+            <p>Already have an account? <a href="index.php">Login here</a></p>
+        </div>
     </div>
 </body>
 </html>
