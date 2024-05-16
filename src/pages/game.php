@@ -26,15 +26,16 @@ if(!isset($_SESSION['user_id'])) {
 			<nav id="navBar">
 				<a id="navKnapp" href="/game.php">Game</a>
 				<a id="navKnapp" href="/board.php">Leaderboard</a>
-				<a id="navKnapp" href="/FAQ.php">Guide</a>
+				<a id="navKnapp" href="/FAQ.php">FAQ</a>
 				<!-- Hvis admin så vil denne knappen til admin siden dukke opp -->
 				<?php if ($user['admin'] == 1): ?>
             		<a id="navKnapp" href="/admin.php">Admin</a>
         		<?php endif; ?>
 				<a id="navKnapp" href="/index.php">Log out</a>
 			</nav>
-
-			<img src="public/Viper_melancholy_logo.svg" alt="Viper Melancholy logo" id="logo" height="100px">
+			<div id=logo_container>
+				<img src="public/Viper_melancholy_logo.svg" alt="Viper Melancholy logo" id="logo" height="100px">
+			</div>
 		<div id="game_container">
 
 			<div id="upgrade_list"> <!--Upgrade listen -->

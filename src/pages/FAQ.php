@@ -27,7 +27,7 @@ if(!isset($_SESSION['user_id'])) {
         <nav id="navBar">
             <a id="navKnapp" href="/game.php">Game</a>
             <a id="navKnapp" href="/board.php">Leaderboard</a>
-            <a id="navKnapp" href="/FAQ.php">Guide</a>
+            <a id="navKnapp" href="/FAQ.php">FAQ</a>
             <!-- Hvis admin så vil denne knappen til admin siden dukke opp -->
             <?php if ($user['admin'] == 1): ?>
                 <a id="navKnapp" href="/admin.php">Admin</a>
@@ -56,5 +56,8 @@ if(!isset($_SESSION['user_id'])) {
         <h2>How to upgrade?</h2>    
         <p>Click on the upgrade button to upgrade yoru clicker. The more you upgrade, the more powerful you become.</p>
     </div>
+
+    <br><br>
+
     <h2>For any questions send an mail to Alexandermofre@gmail.com</h2>
     </body>

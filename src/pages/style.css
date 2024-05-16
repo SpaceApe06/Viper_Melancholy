@@ -17,7 +17,7 @@
     border: 1px solid black;
     border-radius: 5px;
     margin: 10px;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
 }
 #navBar {
     display: flex;
@@ -162,4 +162,16 @@ main {
     -moz-user-select: none;
     -ms-user-select: none;
     cursor: pointer;
+}
+#logo_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 1%;
+}
+#logo{
+    justify-content: center;
+    flex-direction: row;
+    height: 25%;
+    width: 25%;
 }

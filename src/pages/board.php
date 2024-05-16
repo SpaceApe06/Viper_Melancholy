@@ -26,7 +26,7 @@ if(!isset($_SESSION['user_id'])) {
 			<nav id="navBar">
 				<a id="navKnapp" href="/game.php">Game</a>
 				<a id="navKnapp" href="/board.php">Leaderboard</a>
-				<a id="navKnapp" href="/FAQ.php">Guide</a>
+				<a id="navKnapp" href="/FAQ.php">FAQ</a>
 				<!-- Hvis admin så vil denne knappen til admin siden dukke opp -->
 				<?php if ($user['admin'] == 1): ?>
             		<a id="navKnapp" href="/admin.php">Admin</a>
