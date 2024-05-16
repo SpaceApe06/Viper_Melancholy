@@ -8,6 +8,17 @@
     margin-bottom: 10px;
     flex-direction: column;
 }
+#Video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25%;
+    width: 25%;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 10px;
+    margin-bottom: 10%;
+}
 #navBar {
     display: flex;
     justify-content: space-around;
