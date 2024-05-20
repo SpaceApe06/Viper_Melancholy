@@ -1,8 +1,8 @@
 <?php
-    $server = "localhost";
-    $user = "root";
-    $pw = "ADMIN";
-    $db = "viperdb";
+    $server = "localhost"; // server navn
+    $user = "root"; // brukernavn
+    $pw = "ADMIN"; // passord
+    $db = "viperdb"; // database navn
 
     $conn = mysqli_connect($server, $user, $pw, $db);
 

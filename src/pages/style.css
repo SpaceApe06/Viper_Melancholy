@@ -1,71 +1,5 @@
-#logg_inn{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-#logg_inn_label{
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    flex-direction: column;
-}
-#Video {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 25%;
-    width: 25%;
-    border: 1px solid black;
-    border-radius: 5px;
-    margin: 10px;
-    margin-bottom: 5%;
-}
-#navBar {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: #333;
-    color: white;
-    padding: 10px;
-    border : 3px solid green;
-}
-#navKnapp {
-    text-decoration: none;
-    color: white;
-    padding: 8px;
-    font-size: 1.2em;
-}
+/* Universal forming */
 
-#navKnapp:hover {
-    color: #f1f1f1;
-}
-#board_container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    border: black solid 1px;
-
-}
-#score_container {
-    flex-direction: column;
-    /* align-items: ; */
-    justify-content: flex-start;
-    border: 1px solid black;
-    border-radius: 5px;
-    width: 50%;
-}
-#score_type {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    border-bottom: 1px solid black;
-}
-/* #player_score {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    border-bottom: 1px solid black;
-} */
 :root {
     --accent: 136, 58, 234;
     --accent-light: 224, 204, 250;
@@ -99,6 +33,89 @@ main {
     font-size: 20px;
     line-height: 1.6;
 }
+
+/* Logg inn */
+
+#logg_inn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#logg_inn_label{
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    flex-direction: column;
+}
+
+/* Navbar */
+
+#navBar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    border : 3px solid green;
+}
+#navKnapp {
+    text-decoration: none;
+    color: white;
+    padding: 8px;
+    font-size: 1.2em;
+}
+
+#navKnapp:hover {
+    color: #f1f1f1;
+}
+
+/* FAQ */
+
+#Video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25%;
+    width: 25%;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 10px;
+    margin-bottom: 5%;
+}
+
+/* LeaderBoard */
+
+#board_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    border: black solid 1px;
+
+}
+#score_container {
+    flex-direction: column;
+    /* align-items: ; */
+    justify-content: flex-start;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 50%;
+}
+#score_type {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border-bottom: 1px solid black;
+}
+/* #player_score {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-bottom: 1px solid black;
+} */
+
+/* Spillet */
+
 #game_container {
     display: flex;
     flex-direction: row;
@@ -106,6 +123,24 @@ main {
     height: 100vh;
     border: solid 1px black
 };
+
+/* Logo */
+
+#logo_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 1%;
+}
+#logo{
+    justify-content: center;
+    flex-direction: row;
+    height: 25%;
+    width: 25%;
+}
+
+/* Oppgradering */
+
 #upgrade_list {
     flex-direction: column;
     border-color: solid blue
@@ -151,6 +186,9 @@ main {
 #upgrade_name {
     font-size: 150%;
 }
+
+/* Fiende */
+
 #enemy_container {
     display: flex;
     flex-direction: column;
@@ -163,15 +201,9 @@ main {
     -ms-user-select: none;
     cursor: pointer;
 }
-#logo_container{
+#error_container {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 1%;
-}
-#logo{
-    justify-content: center;
-    flex-direction: row;
-    height: 25%;
-    width: 25%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;     
 }

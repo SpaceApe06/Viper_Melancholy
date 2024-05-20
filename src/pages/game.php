@@ -2,12 +2,12 @@
 session_start();
 include("db_connect.php");
 
-// Check if user is logged in
+// sjekker hvis brukeren er logget inn
 if(!isset($_SESSION['user_id'])) {
-    echo "You must be logged in to join the LAN party.";
+    echo "You are not properly logged inn";
     exit;
 };
-    // Check if user is admin
+    // sjekker hvis brukeren er en admin
     $query = "SELECT admin FROM users WHERE user_id = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("i", $_SESSION['user_id']);
@@ -16,13 +16,15 @@ if(!isset($_SESSION['user_id'])) {
     $user = $result->fetch_assoc();
 ?>
 <html>
-<head>
-	<title>game</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="style.css">
-</head>	
+	<head>
+		<title>game</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>	
+
 	<body>
+		        <!-- Navbar -->
 			<nav id="navBar">
 				<a id="navKnapp" href="/game.php">Game</a>
 				<a id="navKnapp" href="/board.php">Leaderboard</a>
@@ -33,6 +35,7 @@ if(!isset($_SESSION['user_id'])) {
         		<?php endif; ?>
 				<a id="navKnapp" href="/index.php">Log out</a>
 			</nav>
+
 			<div id=logo_container>
 				<img src="public/Viper_melancholy_logo.svg" alt="Viper Melancholy logo" id="logo" height="100px">
 			</div>

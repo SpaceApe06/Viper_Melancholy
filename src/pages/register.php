@@ -22,10 +22,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = mysqli_query($conn, $query);
 
     if ($result) {
-        // Redirect to the login page after successful registration
+        // Hvis registreringen er vellykket, sender brukeren tilbake til index.php
         header("Location: index.php");
         exit();
     } else {
+        // Hvis registreringen feiler, skriver ut en feilmelding
         echo "Registration failed";
     }
 }

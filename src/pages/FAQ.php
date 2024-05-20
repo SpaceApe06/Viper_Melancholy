@@ -2,12 +2,12 @@
 session_start();
 include("db_connect.php");
 
-// Check if user is logged in
+// sjekker hvis brukeren er logget inn
 if(!isset($_SESSION['user_id'])) {
-    echo "You must be logged in to join the LAN party.";
+    echo "You are not properly logged inn";
     exit;
 };
-    // Check if user is admin
+    // sjekker hvis brukeren er en admin
     $query = "SELECT admin FROM users WHERE user_id = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("i", $_SESSION['user_id']);
@@ -16,19 +16,20 @@ if(!isset($_SESSION['user_id'])) {
     $user = $result->fetch_assoc();
 ?>
 <html>
-<head>
-	<title>game</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="style.css">
-</head>	
-	<body>
+    <head>
+        <title>game</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>	
 
+	<body>
+        <!-- Navbar -->
         <nav id="navBar">
             <a id="navKnapp" href="/game.php">Game</a>
             <a id="navKnapp" href="/board.php">Leaderboard</a>
             <a id="navKnapp" href="/FAQ.php">FAQ</a>
-            <!-- Hvis admin så vil denne knappen til admin siden dukke opp -->
+            <!-- Hvis brukeren er en admin så vil denne knappen til admin siden dukke opp -->
             <?php if ($user['admin'] == 1): ?>
                 <a id="navKnapp" href="/admin.php">Admin</a>
             <?php endif; ?>
@@ -37,8 +38,11 @@ if(!isset($_SESSION['user_id'])) {
         
     <div id="FAQ_container">
 
+        <!-- Video -->
         <h2>Opplæringsvideo for nettsiden</h2>
         <video id="Video" controls src="\public\Video.mp4"></video>
+
+        <!-- FAQ -->
         <h1>Frequently asked questions (FAQ)</h1>
 
         <h2>How to play the game?</h2>

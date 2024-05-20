@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 	<body>
+
         <br><br>
         <h1>Viper's Melancholy</h1>
 		<p>
@@ -31,7 +32,4 @@
                     <p>Don't have an account? <a href="register_page.php">Sign Up</a></p>
         </form>
     </body>
-<style>
-
-    </style>
-    </html>
+</html>
