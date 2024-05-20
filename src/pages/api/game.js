@@ -1,3 +1,8 @@
+// Initialize game variables
+let totalClicks = 0;
+let enemiesKilled = 0;
+
+// Game logic
 let count = 0;
 
 // array liste med alle fiendene med navn, bilde og liv
@@ -7,6 +12,15 @@ let enemies = [
   { name: "Enemy 3", image: "/public/enemy/enemy3.png", life: 300, initialLife: 300 },
 ];
 let currentEnemyIndex = 0;
+
+document.getElementById("enemyImage").addEventListener("click", function() {
+  clickEnemy();
+  playerClick();
+});
+
+function playerClick() {
+  totalClicks++;
+}
 
 function clickEnemy() {
   count++;
@@ -32,9 +46,37 @@ function newEnemy() {
   if (currentEnemyIndex >= enemies.length) {
     currentEnemyIndex = 0;
 
+    if (enemies[currentEnemyIndex].life <= 0) {
+      enemiesKilled++;
+      newEnemy();
+    }
+
     // nullstiller livet til fiendene
     for (let i = 0; i < enemies.length; i++) {
       enemies[i].life = enemies[i].initialLife;
     }
   }
 }
+
+// Increase totalClicks every time the player clicks
+function playerClick() {
+  totalClicks++;
+  // Other game logic...
+}
+
+// Increase enemiesKilled every time an enemy is killed
+function enemyKilled() {
+  enemiesKilled++;
+  // Other game logic...
+  // saveToStats();
+}
+
+// Save totalClicks and enemiesKilled to the database every minute
+function saveToStats() {
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'game.php', true);
+  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  xhr.send('click=' + totalClicks + '&kills=' + enemiesKilled);
+}
+
+setInterval(saveToStats, 10000);

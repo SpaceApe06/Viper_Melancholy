@@ -48,12 +48,11 @@ if(!isset($_SESSION['user_id'])) {
                 </div>
 
                 <div id="player_score">
-                    
-                    <!-- <p>Alexander</p>
+                    <p>Alexander</p>
                     <p>4465</p>
                     <p>45210</p>
                     <p>5</p>
-                    <p>100</p> -->
+                    <p>100</p>
                 </div>
             </div>
         </div>

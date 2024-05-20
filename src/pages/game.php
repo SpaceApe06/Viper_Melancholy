@@ -14,7 +14,45 @@ if(!isset($_SESSION['user_id'])) {
     $stmt->execute();
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
+
+// Check if form data is received
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	var_dump($_POST); // Check the POST data
+  
+	$click = $_POST['click'];
+	$kills = $_POST['kills'];
+	
+	// Get the id of the currently logged in user
+	$userId = $_SESSION['user_id'];
+  
+	// Check if a record for the user exists
+	$stmt = $conn->prepare("SELECT stat_id FROM stats WHERE user_id = ?");
+	$stmt->bind_param("i", $userId);
+	$stmt->execute();
+	$result = $stmt->get_result();
+	if ($result->num_rows > 0) {
+	  // Record exists, update it
+	  $stmt = $conn->prepare("UPDATE stats SET click = ?, kills = ? WHERE user_id = ?");
+	  $stmt->bind_param("iii", $click, $kills, $userId);
+	} else {
+	  // Record does not exist, insert a new one
+	  $stmt = $conn->prepare("INSERT INTO stats (user_id, click, kills) VALUES (?, ?, ?)");
+	  $stmt->bind_param("iii", $userId, $click, $kills);
+	}
+  
+	// Execute the query
+	if ($stmt->execute()) {
+	  echo "Records updated successfully";
+	} else {
+	  echo "Error: " . $conn->error; // Check the SQL query
+	}
+  
+	// Close the statement and connection
+	$stmt->close();
+	$conn->close();
+  }
 ?>
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>game</title>
@@ -59,7 +97,7 @@ if(!isset($_SESSION['user_id'])) {
 				<div id="enemy">
 					<p id="hp">HP: 100</p>
 					<p id="enemyName">Enemy 1</p>
-					<img id="enemyImage" src="public\enemy\enemy1.png" draggable="false" onclick="clickEnemy()">
+					<img id="enemyImage" src="public\enemy\enemy1.png" draggable="false">
 					<p id="counter">Total clicks: 0</p>
 				</div>
 			</div>
