@@ -50,7 +50,52 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	// Close the statement and connection
 	$stmt->close();
 	$conn->close();
-  }
+	}
+// 	$userId = $_SESSION['user_id'];
+
+// 	// Prepare and bind
+// 	$stmt = $conn->prepare("SELECT click FROM stats WHERE user_id = ?");
+// 	$stmt->bind_param("i", $userId);
+	
+// 	// Execute the query
+// 	$stmt->execute();
+	
+// 	// Bind the result to a variable
+// 	$stmt->bind_result($totalClicks);
+	
+// 	// Fetch the result
+// 	$stmt->fetch();
+	
+// 	// Close the statement
+// 	$stmt->close();
+  
+//   	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+// 		$click = $_POST['click'];
+// 		$kills = $_POST['kills'];
+		
+// 		// Add the current clicks to the total clicks
+// 		$totalClicks += $click;
+	
+// 		// Update the record with the new total clicks
+// 		$stmt = $conn->prepare("UPDATE stats SET click = ?, kills = ? WHERE user_id = ?");
+// 		$stmt->bind_param("iii", $totalClicks, $kills, $userId);
+  
+// 	// Execute the query
+// 	if ($stmt->execute()) {
+// 	  echo "Records updated successfully";
+// 	} else {
+// 	  echo "Error: " . $conn->error; // Check the SQL query
+// 	}
+  
+// 	// Close the statement
+// 	$stmt->close();
+// 	} else {
+// 	// If it's a GET request, return the total clicks
+// 	echo $totalClicks;
+// 	}
+  
+//   // Close the connection
+//   $conn->close();
 ?>
 <!DOCTYPE html>
 <html>
@@ -98,7 +143,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					<p id="hp">HP: 100</p>
 					<p id="enemyName">Enemy 1</p>
 					<img id="enemyImage" src="public\enemy\enemy1.png" draggable="false">
-					<p id="counter">Total clicks: 0</p>
+					<p id="counter">Current clicks: 0</p>
+					<!-- <p id="totalClick">Total clicks: <//?php echo $totalClicks; ?></p> -->
 				</div>
 			</div>
 

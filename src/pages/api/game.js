@@ -24,7 +24,7 @@ function playerClick() {
 
 function clickEnemy() {
   count++;
-  document.getElementById("counter").innerHTML = "Total Clicks: " + count;
+  document.getElementById("counter").innerHTML = "Current Clicks: " + count;
 
   // Reduser fiendens liv med 10
   enemies[currentEnemyIndex].life -= 10;

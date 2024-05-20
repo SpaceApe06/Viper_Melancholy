@@ -1,15 +1,17 @@
 <?php
-$userId = $_GET['id'];
+include("db_connect.php");
 
-// Make user an admin in the database
-$query = "UPDATE users SET admin = 1 WHERE user_id = ?";
-$stmt = $conn->prepare($query);
-$stmt->bind_param('i', $userId);
-$success = $stmt->execute();
+$userId = $_POST['user_id'];
 
-if ($success) {
-    header('Location: /admin.php'); // Redirect back to admin.php
+$stmt = $conn->prepare("UPDATE users SET admin = 1 WHERE user_id = ?");
+$stmt->bind_param("i", $userId);
+
+if ($stmt->execute()) {
+  echo "User promoted to admin successfully";
 } else {
-    echo "Failed to make user admin";
+  echo "Error: " . $conn->error;
 }
+
+$stmt->close();
+$conn->close();
 ?>

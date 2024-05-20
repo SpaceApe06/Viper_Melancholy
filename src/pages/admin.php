@@ -73,23 +73,6 @@ if(!isset($_SESSION['user_id'])) {
                         ?>
 
                     </div>
-                    <!-- <div id="admin_list">
-                        <?php
-                        // Fetch admin users from database
-                        // $result = "SELECT * FROM users WHERE admin = 1";
-                        // $result = $conn->query($result);
-                        // if ($result->num_rows > 0) {
-                        //     // Loop through users and display their info
-                        //     while($user = $result->fetch_assoc()) {
-                        //         echo "<p>ID: " . $user['user_id'] . "</p>";
-                        //         echo "<p>Username: " . $user['username'] . "</p>";
-                        //         echo "<hr>"; // Add a horizontal line for visual separation
-                        //     }
-                        // } else {
-                        //     echo "No admin users found";
-                        // }
-                        // ?> 
-                    </div> -->
                 </div>
         </div>
     </body>
