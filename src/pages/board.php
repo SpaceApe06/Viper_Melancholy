@@ -16,17 +16,18 @@ if(!isset($_SESSION['user_id'])) {
     $user = $result->fetch_assoc();
 ?>
 <html>
-<head>
-	<title>game</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="style.css">
-</head>	
+    <head>
+        <title>Leaderboard</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>	
+
 	<body>
         <!-- Navbar -->
         <nav id="navBar">
             <a id="navKnapp" href="/game.php">Game</a>
-            <a id="navKnapp" href="/board.php">Leaderboard</a>
+            <a id="navKnapp" href="/board.php">Stats</a>
             <a id="navKnapp" href="/FAQ.php">FAQ</a>
             <!-- Hvis admin så vil denne knappen til admin siden dukke opp -->
             <?php if ($user['admin'] == 1): ?>
@@ -36,7 +37,7 @@ if(!isset($_SESSION['user_id'])) {
         </nav>
 
         <div id="board_container">
-            <h1 id=board_title>Leaderboard</h1>
+            <h1 id=board_title>Stats</h1>
             <div id="score_container">
                 <div id="score_type">
                     <p>Name</p>
@@ -46,12 +47,13 @@ if(!isset($_SESSION['user_id'])) {
                     <p>Enemies killed</p>
                 </div>
 
-                <div id="score_type">
-                    <p>Alexander</p>
+                <div id="player_score">
+                    
+                    <!-- <p>Alexander</p>
                     <p>4465</p>
                     <p>45210</p>
                     <p>5</p>
-                    <p>100</p>
+                    <p>100</p> -->
                 </div>
             </div>
         </div>

@@ -107,12 +107,12 @@ main {
     justify-content: space-evenly;
     border-bottom: 1px solid black;
 }
-/* #player_score {
+#player_score {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-evenly;
     border-bottom: 1px solid black;
-} */
+}
 
 /* Spillet */
 
