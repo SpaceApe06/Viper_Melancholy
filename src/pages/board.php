@@ -15,7 +15,7 @@ if(!isset($_SESSION['user_id'])) {
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
 
-    $userId = $_SESSION['user_id']; // replace this with the actual ID or username of the logged in user
+    $userId = $_SESSION['user_id']; 
 
     $stmt = $conn->prepare("SELECT users.username, stats.* FROM stats INNER JOIN users ON stats.user_id = users.user_id WHERE stats.user_id = ?");
     $stmt->bind_param("i", $userId);

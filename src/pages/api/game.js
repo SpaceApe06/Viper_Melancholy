@@ -46,15 +46,24 @@ function newEnemy() {
   if (currentEnemyIndex >= enemies.length) {
     currentEnemyIndex = 0;
 
-    if (enemies[currentEnemyIndex].life <= 0) {
-      enemiesKilled++;
-      newEnemy();
-    }
-
+    
     // nullstiller livet til fiendene
     for (let i = 0; i < enemies.length; i++) {
+      // If the enemy's life is 0 or less, increment enemiesKilled
+      if (enemies[i].life <= 0) {
+        enemiesKilled++;
+      }
       enemies[i].life = enemies[i].initialLife;
     }
+  }
+  
+  // Save stats when a new loop of enemies starts
+  saveToStats();
+
+  // If the new enemy's life is 0 or less, increment enemiesKilled
+  if (enemies[currentEnemyIndex].life <= 0) {
+    enemiesKilled++;
+    newEnemy();
   }
 }
 
@@ -64,12 +73,6 @@ function playerClick() {
   // Other game logic...
 }
 
-// Increase enemiesKilled every time an enemy is killed
-function enemyKilled() {
-  enemiesKilled++;
-  // Other game logic...
-  // saveToStats();
-}
 
 // Save totalClicks and enemiesKilled to the database every minute
 function saveToStats() {
@@ -79,4 +82,4 @@ function saveToStats() {
   xhr.send('click=' + totalClicks + '&kills=' + enemiesKilled);
 }
 
-setInterval(saveToStats, 10000);
+// setInterval(saveToStats, 10000);
