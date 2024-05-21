@@ -44,28 +44,28 @@ if(!isset($_SESSION['user_id'])) {
                     <div id="user_info">
 
                         <?php
-                        // Fetch users from database
+                        // henter brukere fra databasen
                         $result = "SELECT * FROM users";
                         $result = $conn->query($result);
                         if ($result->num_rows > 0) {
-                            // Loop through users and display their info
+                            // vil gå gjennom alle brukere i databasen og gi info om dem
                             while($user = $result->fetch_assoc()) {
                                 echo "<p>ID: " . $user['user_id'] . "</p>";
                                 echo "<p>Username: " . $user['username'] . "</p>";
 
-                                // Display whether user is an admin
+                                // viser hvem som er admin
                                 if ($user['admin'] == 1) {
                                     echo "<p>Is Admin</p>";
                                 } else {
                                     echo "<p>Not Admin</p>";
                                 }
                                 
-                                // Add admin button
+                                // legger til admin knapp
                                 echo "<button onclick='addAdmin(" . $user['user_id'] . ")'>Add Admin</button>";
             
-                                // Delete user button
+                                // Slett bruker knapp
                                 echo "<button onclick='deleteUser(" . $user['user_id'] . ")'>Delete</button>";   
-                                echo "<hr>"; // Add a horizontal line for visual separation
+                                echo "<hr>";
                             }
                         } else {
                             echo "0 results";

@@ -15,14 +15,14 @@ if(!isset($_SESSION['user_id'])) {
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
 
-// Check if form data is received
+// sjekker om form dataen er sendt
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	var_dump($_POST); // Check the POST data
+	var_dump($_POST); 
   
 	$click = $_POST['click'];
 	$kills = $_POST['kills'];
 	
-	// Get the id of the currently logged in user
+	// får id til brukeren som er logget inn akkurat nå
 	$userId = $_SESSION['user_id'];
   
 	// Check if a record for the user exists
@@ -31,71 +31,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$stmt->execute();
 	$result = $stmt->get_result();
 	if ($result->num_rows > 0) {
-	  // Record exists, update it
+	  // hvis stats eksisterer vil den oppdatere stats i databasen
 	  $stmt = $conn->prepare("UPDATE stats SET click = ?, kills = ? WHERE user_id = ?");
 	  $stmt->bind_param("iii", $click, $kills, $userId);
 	} else {
-	  // Record does not exist, insert a new one
+	  // hvis stats ikke eksisterer vil den legge til i databasen
 	  $stmt = $conn->prepare("INSERT INTO stats (user_id, click, kills) VALUES (?, ?, ?)");
 	  $stmt->bind_param("iii", $userId, $click, $kills);
 	}
   
-	// Execute the query
 	if ($stmt->execute()) {
 	  echo "Records updated successfully";
 	} else {
-	  echo "Error: " . $conn->error; // Check the SQL query
+	  echo "Error: " . $conn->error;
 	}
   
-	// Close the statement and connection
+	// lukker statement og connection
 	$stmt->close();
 	$conn->close();
 	}
-// 	$userId = $_SESSION['user_id'];
-
-// 	// Prepare and bind
-// 	$stmt = $conn->prepare("SELECT click FROM stats WHERE user_id = ?");
-// 	$stmt->bind_param("i", $userId);
-	
-// 	// Execute the query
-// 	$stmt->execute();
-	
-// 	// Bind the result to a variable
-// 	$stmt->bind_result($totalClicks);
-	
-// 	// Fetch the result
-// 	$stmt->fetch();
-	
-// 	// Close the statement
-// 	$stmt->close();
-  
-//   	if ($_SERVER["REQUEST_METHOD"] == "POST") {
-// 		$click = $_POST['click'];
-// 		$kills = $_POST['kills'];
-		
-// 		// Add the current clicks to the total clicks
-// 		$totalClicks += $click;
-	
-// 		// Update the record with the new total clicks
-// 		$stmt = $conn->prepare("UPDATE stats SET click = ?, kills = ? WHERE user_id = ?");
-// 		$stmt->bind_param("iii", $totalClicks, $kills, $userId);
-  
-// 	// Execute the query
-// 	if ($stmt->execute()) {
-// 	  echo "Records updated successfully";
-// 	} else {
-// 	  echo "Error: " . $conn->error; // Check the SQL query
-// 	}
-  
-// 	// Close the statement
-// 	$stmt->close();
-// 	} else {
-// 	// If it's a GET request, return the total clicks
-// 	echo $totalClicks;
-// 	}
-  
-//   // Close the connection
-//   $conn->close();
 ?>
 <!DOCTYPE html>
 <html>
@@ -144,7 +98,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					<p id="enemyName">Enemy 1</p>
 					<img id="enemyImage" src="public\enemy\enemy1.png" draggable="false">
 					<p id="counter">Current clicks: 0</p>
-					<!-- <p id="totalClick">Total clicks: <//?php echo $totalClicks; ?></p> -->
 				</div>
 			</div>
 
