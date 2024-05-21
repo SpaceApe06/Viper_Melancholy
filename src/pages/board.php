@@ -15,14 +15,6 @@ if(!isset($_SESSION['user_id'])) {
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
 
-    $userId = $_SESSION['user_id']; 
-
-    $stmt = $conn->prepare("SELECT users.username, stats.* FROM stats INNER JOIN users ON stats.user_id = users.user_id WHERE stats.user_id = ?");
-    $stmt->bind_param("i", $userId);
-    $stmt->execute();
-    
-    $result = $stmt->get_result();
-    $userStats = $result->fetch_assoc();
 ?>
 <html>
     <head>
@@ -57,11 +49,6 @@ if(!isset($_SESSION['user_id'])) {
                 </div>
 
                 <div id="player_score">
-                    <p><?php echo $userStats['username']; ?></p>
-                    <p><?php echo $userStats['click']; ?></p>
-                    <p><?//php echo $userStats['v_shard']; ?></p>
-                    <p><?//php echo $userStats['upgrades']; ?></p>
-                    <p><?php echo $userStats['kills']; ?></p>
                 </div> 
             </div>
         </div>
