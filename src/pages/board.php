@@ -48,7 +48,9 @@ if(!isset($_SESSION['user_id'])) {
                     <p>Enemies killed</p>
                 </div>
 
+                <!-- Her vil spilleren sin stats bli vist -->
                 <div id="player_score">
+            
                 </div> 
             </div>
         </div>
