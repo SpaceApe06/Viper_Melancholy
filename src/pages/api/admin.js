@@ -1,3 +1,4 @@
+// Gjør brukeren til admin
 function addAdmin(userId) {
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'add_admin.php', true);
@@ -5,6 +6,7 @@ function addAdmin(userId) {
     xhr.send('user_id=' + userId);
   }
   
+//   Sletter bruker
   function deleteUser(userId) {
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'delete_user.php', true);
