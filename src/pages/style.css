@@ -83,7 +83,7 @@ main {
     margin-bottom: 5%;
 }
 
-/* LeaderBoard */
+/* Stats */
 
 #board_container {
     display: flex;
@@ -94,7 +94,8 @@ main {
 
 }
 #score_container {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     /* align-items: ; */
     justify-content: flex-start;
     border: 1px solid black;

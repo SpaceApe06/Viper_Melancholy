@@ -14,10 +14,19 @@ if(!isset($_SESSION['user_id'])) {
     $stmt->execute();
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
+
+    $userId = $_SESSION['user_id']; // replace this with the actual ID or username of the logged in user
+
+    $stmt = $conn->prepare("SELECT users.username, stats.* FROM stats INNER JOIN users ON stats.user_id = users.user_id WHERE stats.user_id = ?");
+    $stmt->bind_param("i", $userId);
+    $stmt->execute();
+    
+    $result = $stmt->get_result();
+    $userStats = $result->fetch_assoc();
 ?>
 <html>
     <head>
-        <title>Leaderboard</title>
+        <title>Stats</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="style.css">
@@ -42,18 +51,18 @@ if(!isset($_SESSION['user_id'])) {
                 <div id="score_type">
                     <p>Name</p>
                     <p>Clicks</p>
-                    <p>V-shard</p>
-                    <p>Upgrades</p>
+                    <!-- <p>V-shard</p>
+                    <p>Upgrades</p> -->
                     <p>Enemies killed</p>
                 </div>
 
                 <div id="player_score">
-                    <p>Alexander</p>
-                    <p>4465</p>
-                    <p>45210</p>
-                    <p>5</p>
-                    <p>100</p>
-                </div>
+                    <p><?php echo $userStats['username']; ?></p>
+                    <p><?php echo $userStats['click']; ?></p>
+                    <p><?//php echo $userStats['v_shard']; ?></p>
+                    <p><?//php echo $userStats['upgrades']; ?></p>
+                    <p><?php echo $userStats['kills']; ?></p>
+                </div> 
             </div>
         </div>
     </body>
