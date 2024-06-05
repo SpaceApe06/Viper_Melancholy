@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	// får id til brukeren som er logget inn akkurat nå
 	$userId = $_SESSION['user_id'];
   
-	// Check if a record for the user exists
+	// sjekker om stats eksisterer i databasen
 	$stmt = $conn->prepare("SELECT stat_id FROM stats WHERE user_id = ?");
 	$stmt->bind_param("i", $userId);
 	$stmt->execute();
@@ -97,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					<p id="hp">HP: 100</p>
 					<p id="enemyName">Enemy 1</p>
 					<img id="enemyImage" src="public\enemy\enemy1.png" draggable="false">
-					<p id="counter">Current clicks: 0</p>
+					<p id="counter">Current clicks: 0</p> <!-- trengs endring-->
 				</div>
 			</div>
 
