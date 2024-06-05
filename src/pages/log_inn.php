@@ -12,7 +12,7 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
         return $data;
     }
 }
-// sjekekr om brukernavn og passord er fylt ut
+// gjør klar data før brukernavn og passord er sjekket i databasen
 $username = validate($_POST['username']);
 $password = validate($_POST['password']);
 
