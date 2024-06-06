@@ -53,8 +53,6 @@ if(!isset($_SESSION['user_id'])) {
                 <div id="score_type">
                     <p>Name</p>
                     <p>Clicks</p>
-                    <!-- <p>V-shard</p>
-                    <p>Upgrades</p> -->
                     <p>Enemies killed</p>
                 </div>
 
@@ -62,8 +60,6 @@ if(!isset($_SESSION['user_id'])) {
                 <div id="player_score">
                     <p><?php echo $userStats['username']; ?></p>
                     <p><?php echo $userStats['click']; ?></p>
-                    <p><?//php echo $userStats['v_shard']; ?></p>
-                    <p><?//php echo $userStats['upgrades']; ?></p>
                     <p><?php echo $userStats['kills']; ?></p>
                 </div> 
             </div>

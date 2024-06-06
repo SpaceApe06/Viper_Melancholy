@@ -14,12 +14,11 @@
                                   snake against enemies and bosses. </p>
             </div>
 
-
-
             <!-- logg inn -->
             <div id="logg_inn">
                 <form method="post" action="log_inn.php">
                     <div id="logg_inn_label">
+                        <h3>Logg inn</h3>
                         <label for="username">Name:</label>
                         <input type="text" id="username" name="username" placeholder="Username" maxlength="20">
                     </div>

@@ -68,7 +68,7 @@ elseif ($_SERVER["REQUEST_METHOD"] == "GET") {
     $row = $result->fetch_assoc();
 
     if ($row) {
-        echo $row['click'];
+        echo "<p id='shh'>" . $row['click'] . "</p>";
     } else {
         echo "<p id=shh>0</p>";
     }
