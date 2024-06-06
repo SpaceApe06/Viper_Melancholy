@@ -1,6 +1,32 @@
-// Initialize game variables
 let totalClicks = 0;
 let enemiesKilled = 0;
+let lastSavedClicks = 0;
+let lastSavedKills = 0;
+
+// Fetch the previous total clicks from the database when the game starts
+var xhr = new XMLHttpRequest();
+xhr.open('GET', 'game.php', true);
+
+xhr.onload = function() {
+  if (this.status == 200) {
+    totalClicks = parseInt(this.responseText); // Parse the response text as an integer
+    lastSavedClicks = totalClicks; // Initialize lastSavedClicks with the previous total clicks
+  }
+};
+xhr.send();
+
+// Increase totalClicks every time the player clicks
+function playerClick() {
+  totalClicks++;
+  document.getElementById('counter').innerText = 'Current clicks: ' + totalClicks;
+}
+
+// Increase enemiesKilled and save stats every time an enemy is killed
+function enemyKilled() {
+  enemiesKilled++;
+  saveToStats(); // Save stats every time an enemy is killed
+}
+
 
 // Game logic
 let count = 0;
@@ -18,10 +44,6 @@ document.getElementById("enemyImage").addEventListener("click", function() {
   playerClick();
 });
 
-function playerClick() {
-  totalClicks++;
-}
-
 function clickEnemy() {
   count++;
   document.getElementById("counter").innerHTML = "Current Clicks: " + count;
@@ -31,6 +53,7 @@ function clickEnemy() {
   
   // hvis fienden er død så vil den gå til neste fiende
   if (enemies[currentEnemyIndex].life <= 0) {
+    enemiesKilled++;
     newEnemy();
   }
   
@@ -46,24 +69,13 @@ function newEnemy() {
   if (currentEnemyIndex >= enemies.length) {
     currentEnemyIndex = 0;
 
-    
-    // nullstiller livet til fiendene
+    // Reset the life of the enemies
     for (let i = 0; i < enemies.length; i++) {
-      // If the enemy's life is 0 or less, increment enemiesKilled
-      if (enemies[i].life <= 0) {
-        enemiesKilled++;
-      }
       enemies[i].life = enemies[i].initialLife;
     }
-  }
 
-  // lagrer stats når loopen er over
-  saveToStats();
-
-  // Hvis den nye fiendens liv er 0 eller mindre, øker fiender drept
-  if (enemies[currentEnemyIndex].life <= 0) {
-    enemiesKilled++;
-    newEnemy();
+    // Save stats when the loop is over
+    saveToStats();
   }
 }
 
@@ -72,13 +84,19 @@ function playerClick() {
   totalClicks++;
 }
 
+var extraClickAdded = false; // Initialize extraClickAdded as false
 
 // lagrer totale klikk og fiender drept i databasen 
 function saveToStats() {
+  if (!extraClickAdded) {
+    totalClicks++; // Add an extra click before saving
+    extraClickAdded = true; // Set extraClickAdded to true
+  }
+
   var xhr = new XMLHttpRequest();
   xhr.open('POST', 'game.php', true);
   xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
   xhr.send('click=' + totalClicks + '&kills=' + enemiesKilled);
 }
-// lagrer stats hvert 10 sekund
-// setInterval(saveToStats, 10000);
+
+// setInterval(saveToStats, 10000); // Save stats every minute

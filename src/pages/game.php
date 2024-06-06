@@ -15,41 +15,64 @@ if(!isset($_SESSION['user_id'])) {
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
 
-// sjekker om form dataen er sendt
+// Check if form data is sent
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	var_dump($_POST); 
-  
-	$click = $_POST['click'];
-	$kills = $_POST['kills'];
-	
-	// får id til brukeren som er logget inn akkurat nå
-	$userId = $_SESSION['user_id'];
-  
-	// sjekker om stats eksisterer i databasen
-	$stmt = $conn->prepare("SELECT stat_id FROM stats WHERE user_id = ?");
-	$stmt->bind_param("i", $userId);
-	$stmt->execute();
-	$result = $stmt->get_result();
-	if ($result->num_rows > 0) {
-	  // hvis stats eksisterer vil den oppdatere stats i databasen
-	  $stmt = $conn->prepare("UPDATE stats SET click = ?, kills = ? WHERE user_id = ?");
-	  $stmt->bind_param("iii", $click, $kills, $userId);
-	} else {
-	  // hvis stats ikke eksisterer vil den legge til i databasen
-	  $stmt = $conn->prepare("INSERT INTO stats (user_id, click, kills) VALUES (?, ?, ?)");
-	  $stmt->bind_param("iii", $userId, $click, $kills);
-	}
-  
-	if ($stmt->execute()) {
-	  echo "Records updated successfully";
-	} else {
-	  echo "Error: " . $conn->error;
-	}
-  
-	// lukker statement og connection
-	$stmt->close();
-	$conn->close();
-	}
+    $click = $_POST['click'];
+    $kills = $_POST['kills'];
+    
+    // Get the id of the currently logged in user
+    $userId = $_SESSION['user_id'];
+    
+    // Check if stats exist in the database
+    $stmt = $conn->prepare("SELECT click, kills FROM stats WHERE user_id = ?");
+    $stmt->bind_param("i", $userId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+
+    if ($row) {
+        $existingClicks = $row['click'];
+        $existingKills = $row['kills'];
+    } else {
+        $existingClicks = 0;
+        $existingKills = 0;
+    }
+
+    // Add the current total clicks and kills to the existing clicks and kills
+    // Only add the existing clicks if they haven't been added yet in this session
+    if (!isset($_SESSION['clicks_added'])) {
+        $totalClicks = $existingClicks + $click;
+        $_SESSION['clicks_added'] = true;
+    } else {
+        $totalClicks = $click;
+    }
+    $totalKills = $existingKills + $kills;
+
+    // If stats for the user exist, update them. Otherwise, insert a new row.
+    if ($row) {
+        $stmt = $conn->prepare("UPDATE stats SET click = ?, kills = ? WHERE user_id = ?");
+        $stmt->bind_param("iii", $totalClicks, $totalKills, $userId);
+    } else {
+        $stmt = $conn->prepare("INSERT INTO stats (user_id, click, kills) VALUES (?, ?, ?)");
+        $stmt->bind_param("iii", $userId, $totalClicks, $totalKills);
+    }
+    $stmt->execute();
+}
+
+elseif ($_SERVER["REQUEST_METHOD"] == "GET") {
+    // Fetch the current click count from the database
+    $stmt = $conn->prepare("SELECT click FROM stats WHERE user_id = ?");
+    $stmt->bind_param("i", $_SESSION['user_id']);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+
+    if ($row) {
+        echo $row['click'];
+    } else {
+        echo "<p id=shh>0</p>";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -97,7 +120,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					<p id="hp">HP: 100</p>
 					<p id="enemyName">Enemy 1</p>
 					<img id="enemyImage" src="public\enemy\enemy1.png" draggable="false">
-					<p id="counter">Current clicks: 0</p> <!-- trengs endring-->
+					<p id="counter">Current Clicks: 0</p> <!-- trengs endring-->
 				</div>
 			</div>
 
