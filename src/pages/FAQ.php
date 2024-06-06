@@ -36,32 +36,35 @@ if(!isset($_SESSION['user_id'])) {
             <a id="navKnapp" href="/index.php">Log out</a>
         </nav>
         
-    <div id="FAQ_container">
+        <div id=logo_container>
+            <img src="public/Viper_melancholy_logo.svg" alt="Viper Melancholy logo" id="logo" height="100px">
+        </div>
 
-        <!-- Video -->
-        <h2>Opplæringsvideo for nettsiden</h2>
-        <video id="Video" controls src="\public\Video.mp4"></video>
+        <div id="FAQ_container">
 
-        <!-- FAQ -->
-        <h1>Frequently asked questions (FAQ)</h1>
+            <!-- Video -->
+            <h2>Opplæringsvideo for nettsiden</h2>
+            <video id="Video" controls src="\public\Video.mp4"></video>
 
-        <h2>How to play the game?</h2>
-        <p>Click on the enemy to do damage and to earn V-shard. The more you click, the more damage.</p>
+            <!-- FAQ -->
+            <h1>Frequently asked questions (FAQ)</h1>
 
-        <h2>What is V-shard?</h2>
-        <p>V-shard is the currency in the game. You can use it to upgrade your clicker.</p>
+            <h2>How to play the game?</h2>
+            <p>Click on the enemy to do damage and to earn V-shard. The more you click, the more damage.</p>
 
-        <h2>What is Stats?</h2>
-        <p>Stats page shows the stats of individual players based on the multiple factor such as clicks or enemies killed they have earned.</p>
+            <h2>What is V-shard?</h2>
+            <p>V-shard is the currency in the game. You can use it to upgrade your clicker.</p>
 
-        <h2>How can I become an admin?</h2>
-        <p>Admin rights are granted by the game administrators. Contact the admin for more information.</p>
+            <h2>What is Stats?</h2>
+            <p>Stats page shows the stats of individual players based on the such amount of clicks or enemies killed they have earned.</p>
 
-        <h2>How to upgrade?</h2>    
-        <p>Click on the upgrade button to upgrade yoru clicker. The more you upgrade, the more powerful you become.</p>
-    </div>
+            <h2>How can I become an admin?</h2>
+            <p>Admin rights are granted by the game administrators. Contact the admin for more information.</p>
 
-    <br><br>
+            <h2>How to upgrade?</h2>    
+            <p>Click on the upgrade button to upgrade yoru clicker. The more you upgrade, the more powerful you become.</p>
+        </div>
 
-    <h2>For any questions send an mail to Alexandermofre@gmail.com</h2>
+        <h2>For any questions send an email to <a href="mailto:Alexandermofre@gmail.com">Alexandermofre@gmail.com</a></h2>
     </body>
+</html>

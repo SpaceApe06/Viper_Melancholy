@@ -19,6 +19,7 @@
 
     <!-- registrer -->
         <div id="logg_inn">
+            <h2 id="Register_title">Register</h2>
             <form action="register.php" method="post">
                 <div id="logg_inn_label">
                     <label for="register_username">Username:</label>

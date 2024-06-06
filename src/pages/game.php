@@ -98,6 +98,9 @@ elseif ($_SERVER["REQUEST_METHOD"] == "GET") {
 
 			<div id=logo_container>
 				<img src="public/Viper_melancholy_logo.svg" alt="Viper Melancholy logo" id="logo" height="100px">
+                <p id="logo_text"> Vipers's Melancholy is a clicker game where you click the enemies to kill them. 
+                                   Click on the enemy on the right side to kill them</p>
+                <p id="logo_text">You can also buy upgrades to increase your damage to your left.</p>
 			</div>
 		<div id="game_container">
 
@@ -117,11 +120,12 @@ elseif ($_SERVER["REQUEST_METHOD"] == "GET") {
 
 			<div id="enemy_container">
 				<div id="enemy">
-					<p id="hp">HP: 100</p>
 					<p id="enemyName">Enemy 1</p>
+					<p id="hp">HP: 100</p>
 					<img id="enemyImage" src="public\enemy\enemy1.png" draggable="false">
 					<p id="counter">Current Clicks: 0</p> <!-- trengs endring-->
 				</div>
+                <p>*PROGRESS WILL ONLY BE SAVED AFTER AN ENEMY CYCLE*</p>
 			</div>
 
 		</div>

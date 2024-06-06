@@ -41,7 +41,7 @@ main {
     flex-direction: column;
     /* align-items: center; */
     justify-content: flex-end;
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
 #logg_inn{
@@ -51,9 +51,13 @@ main {
     justify-content: center;
 }
 #logg_inn_label{
-    font-size: 1.5em;
+    font-size: 1.3em;
     margin-bottom: 10px;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-around;
+}
+#Register_title{
+    margin-right: 13%;
 }
 
 /* Navbar */
@@ -130,7 +134,7 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    height: 100vh;
+    height: auto;
     border: solid 1px black
 };
 
@@ -148,9 +152,9 @@ main {
     margin-left: 25%;
 } 
 #register_inn_logo{
-    height: 50%;
-    width: 50%;
-    margin-left: 25%;
+    height: 60%;
+    width: 60%;
+    margin-left: 20%;
 } 
 #Logo_tekst{
     font-size: 1.3em;
@@ -162,7 +166,7 @@ main {
 /* margin-top: 1%; */
 #logo_container{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 3%;
@@ -228,6 +232,7 @@ main {
     display: flex;
     flex-direction: column;
     border: 1px solid black;
+    padding: 2%;
 }
 #enemyImage {
     user-select: none;
@@ -236,7 +241,14 @@ main {
     -ms-user-select: none;
     cursor: pointer;
 }
-
+#enemyName{
+    font-size: 1.4em;
+    font-weight: bold;
+}
+#counter{
+    font-size: 1.1em;
+    font-weight: bold;
+}
 /* 404 error */
 #error_container {
     display: flex;

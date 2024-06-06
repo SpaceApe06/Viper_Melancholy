@@ -47,6 +47,11 @@ if(!isset($_SESSION['user_id'])) {
             <a id="navKnapp" href="/index.php">Log out</a>
         </nav>
 
+        <div id=logo_container>
+            <img src="public/Viper_melancholy_logo.svg" alt="Viper Melancholy logo" id="logo" height="100px">
+            <p id="logo_text"> Here is your stats.</p>
+            <p id="logo_text"> you can see how many times you have clicked or how many times you killed an enemy</p>
+        </div>
         <div id="board_container">
             <h1 id=board_title>Stats</h1>
             <div id="score_container">
