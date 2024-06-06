@@ -30,7 +30,7 @@ CREATE TABLE `stats` (
   PRIMARY KEY (`stat_id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `stats_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,30 +40,11 @@ CREATE TABLE `stats` (
 LOCK TABLES `stats` WRITE;
 /*!40000 ALTER TABLE `stats` DISABLE KEYS */;
 INSERT INTO `stats` VALUES
-(1,NULL,11,0),
-(2,NULL,11,0),
-(3,NULL,11,0),
-(4,NULL,11,0),
-(5,NULL,11,0),
-(6,NULL,11,0),
-(7,NULL,11,0),
-(8,NULL,11,0),
-(9,NULL,11,0),
-(10,NULL,11,0),
-(11,NULL,11,0),
-(12,NULL,11,0),
-(13,NULL,13,0),
-(14,NULL,22,0),
-(15,NULL,60,1),
-(16,NULL,60,1),
-(17,3,41,0),
-(18,3,41,0),
-(19,3,41,0),
-(20,3,41,0),
-(21,3,41,0),
-(22,3,41,0),
-(23,4,41,0),
-(24,5,0,0);
+(1,3,60,6),
+(2,4,0,3),
+(3,9,60,9),
+(4,14,60,6),
+(5,15,0,3);
 /*!40000 ALTER TABLE `stats` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -107,7 +88,7 @@ CREATE TABLE `users` (
   `password` varchar(255) DEFAULT NULL,
   `admin` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -120,7 +101,14 @@ INSERT INTO `users` VALUES
 (2,'test1','1b4f0e9851971998e732078544c96b36c3d01cedf7caa332359d6f1d83567014',NULL),
 (3,'aaa','9834876dcfb05cb167a5c24953eba58c4ac89b1adf57f28f2f9d09af107ee8f0',NULL),
 (4,'Admin','c1c224b03cd9bc7b6a86d77f5dace40191766c485cd55dc48caf9ac873335d6f',1),
-(5,'spsis','0278e0499baae60795387ddf071a660d4a50928ccbc455b33b54cb1b3c5311f7',1);
+(8,'Epic ','a93d389804ee0490f1903ab26500a66a695ce65fa7ecb074d79771857d074355',NULL),
+(9,'aaaa','61be55a8e2f6b4e172338bddf184d6dbee29c98853e0a0485ecee7f27b9af0b4',NULL),
+(10,'hei','f9d1af62d004d4da648929bc7dde552685979d6e6a78dc8f9b64eb08e9c4ccb7',NULL),
+(11,'test1','1b4f0e9851971998e732078544c96b36c3d01cedf7caa332359d6f1d83567014',NULL),
+(12,'ddd','730f75dafd73e047b86acb2dbd74e75dcb93272fa084a9082848f2341aa1abb6',NULL),
+(13,'ggg','569c7f0b41ce9649602a0218cd02ed0b0a3d93130329451cc782b7dfda79ce71',NULL),
+(14,'hhh','24d166cd6c8b826c779040b49d5b6708d649b236558e8744339dfee6afe11999',NULL),
+(15,'jjj','b2fca9af31aae6953124439df5bc300c1ef11fb8be938aeb570767c5b6bfdaaf',NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -133,4 +121,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-21  9:57:32
+-- Dump completed on 2024-06-07  0:06:24
