@@ -15,15 +15,15 @@ if(!isset($_SESSION['user_id'])) {
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
 
-// Check if form data is sent
+// sjekker hvis data fra en form er POST, denne er sendt fra js scripten til denne siden
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $click = $_POST['click'];
     $kills = $_POST['kills'];
     
-    // Get the id of the currently logged in user
+    // henter id til brukeren som er logget inn og legger det i en variabel
     $userId = $_SESSION['user_id'];
     
-    // Check if stats exist in the database
+    // sjekker hvis stats allerede eksisterer for brukeren
     $stmt = $conn->prepare("SELECT click, kills FROM stats WHERE user_id = ?");
     $stmt->bind_param("i", $userId);
     $stmt->execute();
@@ -38,8 +38,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $existingKills = 0;
     }
 
-    // Add the current total clicks and kills to the existing clicks and kills
-    // Only add the existing clicks if they haven't been added yet in this session
+    // legger til antall clicks og kills til de som allerede eksisterer
+    // det vil kun bli lagt til en gang per session; dette er for å unngå at brukeren får flere clicks og kills for samme fiende
     if (!isset($_SESSION['clicks_added'])) {
         $totalClicks = $existingClicks + $click;
         $_SESSION['clicks_added'] = true;
@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     $totalKills = $existingKills + $kills;
 
-    // If stats for the user exist, update them. Otherwise, insert a new row.
+    // hvis brukeren har stats fra før, så vil de bli oppdatert, hvis ikke så vil de bli lagt til i databasen.
     if ($row) {
         $stmt = $conn->prepare("UPDATE stats SET click = ?, kills = ? WHERE user_id = ?");
         $stmt->bind_param("iii", $totalClicks, $totalKills, $userId);
@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 elseif ($_SERVER["REQUEST_METHOD"] == "GET") {
-    // Fetch the current click count from the database
+    // henter nåværenede antall clicks fra databasen
     $stmt = $conn->prepare("SELECT click FROM stats WHERE user_id = ?");
     $stmt->bind_param("i", $_SESSION['user_id']);
     $stmt->execute();
@@ -123,7 +123,7 @@ elseif ($_SERVER["REQUEST_METHOD"] == "GET") {
 					<p id="enemyName">Enemy 1</p>
 					<p id="hp">HP: 100</p>
 					<img id="enemyImage" src="public\enemy\enemy1.png" draggable="false">
-					<p id="counter">Current Clicks: 0</p> <!-- trengs endring-->
+					<p id="counter">Current Clicks: 0</p>
 				</div>
                 <p>*PROGRESS WILL ONLY BE SAVED AFTER AN ENEMY CYCLE*</p>
 			</div>

@@ -32,7 +32,7 @@ $sql = "SELECT * FROM users WHERE username='$username'";
 
 $result = mysqli_query($conn, $sql);
 
-
+// hvis brukeren finnes i databasen, så vil brukeren bli logget inn og lagres i en session
 if(mysqli_num_rows($result) === 1) {
     $row = mysqli_fetch_assoc($result);
     if ($row['username'] === $username && $row['password'] === $hashed_password) {

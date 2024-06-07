@@ -2,7 +2,7 @@
 session_start();
 include("db_connect.php");
 
-
+// kjører kun hvis det er en POST request og setter form data til variabler
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];

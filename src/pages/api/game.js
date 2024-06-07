@@ -3,32 +3,31 @@ let enemiesKilled = 0;
 let lastSavedClicks = 0;
 let lastSavedKills = 0;
 
-// Fetch the previous total clicks from the database when the game starts
+// henter det forrige totale klikk når spillet starter
 var xhr = new XMLHttpRequest();
 xhr.open('GET', 'game.php', true);
 
 xhr.onload = function() {
   if (this.status == 200) {
-    totalClicks = parseInt(this.responseText); // Parse the response text as an integer
-    lastSavedClicks = totalClicks; // Initialize lastSavedClicks with the previous total clicks
+    totalClicks = parseInt(this.responseText); // parse gjør at string blir til en integer
+    lastSavedClicks = totalClicks; // gjør at lastSavedClicks er lik totalClicks
   }
 };
 xhr.send();
 
-// Increase totalClicks every time the player clicks
+// totaltclicks vil bli økt for hver gang spilleren klikker
 function playerClick() {
   totalClicks++;
   document.getElementById('counter').innerText = 'Current clicks: ' + totalClicks;
 }
 
-// Increase enemiesKilled and save stats every time an enemy is killed
+// øker enemiesKilled hver gang en fiende blir drept og lagrer det
 function enemyKilled() {
   enemiesKilled++;
-  saveToStats(); // Save stats every time an enemy is killed
+  saveToStats();
 }
 
-
-// Game logic
+// spill logikken
 let count = 0;
 
 // array liste med alle fiendene med navn, bilde og liv
@@ -69,12 +68,12 @@ function newEnemy() {
   if (currentEnemyIndex >= enemies.length) {
     currentEnemyIndex = 0;
 
-    // Reset the life of the enemies
+    // resets fienedenes liv
     for (let i = 0; i < enemies.length; i++) {
       enemies[i].life = enemies[i].initialLife;
     }
 
-    // Save stats when the loop is over
+    // når loopen er ferdig så vil den lagre fiender drept
     saveToStats();
   }
 }
@@ -83,8 +82,9 @@ function newEnemy() {
 function playerClick() {
   totalClicks++;
 }
-
-var extraClickAdded = false; // Initialize extraClickAdded as false
+//setter et ekstra clicks til false, dette eksister pga en bug som gjør at det er en klikk for lite 
+//og jeg bare la til en ekstra klikk for å fikse det
+var extraClickAdded = false; 
 
 // lagrer totale klikk og fiender drept i databasen 
 function saveToStats() {
@@ -93,6 +93,7 @@ function saveToStats() {
     extraClickAdded = true; // Set extraClickAdded to true
   }
 
+  // sender en post request til game.php med totalClicks og enemiesKilled
   var xhr = new XMLHttpRequest();
   xhr.open('POST', 'game.php', true);
   xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
